@@ -127,18 +127,14 @@ if (!chatSessionId) {
   localStorage.setItem("fabrik_chat_session", chatSessionId);
 }
 
-const API_BASE = window.location.hostname.includes("github.io")
-  ? "https://fabrik-ukhta.netlify.app"
-  : "";
-
 // Helper to deliver leads and questions directly to master's Telegram
 async function sendLeadToTelegram({ text = "", name = "", phone = "", service = "", date = "" }) {
   const token = "8842149950:AAFxrxtn_GUJUiEbQWknumqn12CptthRswI";
   const chatId = "8941327288";
 
-  // 1. Try serverless endpoint first (Netlify Functions or cloud backend)
+  // 1. Try serverless endpoint first (Netlify Functions or local backend)
   try {
-    const res = await fetch(`${API_BASE}/api/chat/send`, {
+    const res = await fetch("/api/chat/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -484,7 +480,7 @@ if (chatForm && chatInput) {
 setInterval(async () => {
   if (!chatWindow || !chatWindow.classList.contains("is-open")) return;
   try {
-    const res = await fetch(`${API_BASE}/api/chat/messages?sessionId=${chatSessionId}`);
+    const res = await fetch(`/api/chat/messages?sessionId=${chatSessionId}`);
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data.messages)) {
