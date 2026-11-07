@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#111110">
+    <title>FABRI’K — студия красоты в Ухте | Онлайн-запись DIKIDI</title>
+    <meta name="description" content="Студия красоты FABRI’K в Ухте. Сложные техники окрашивания, выход из черного, стрижки, укладки и уход за волосами. Онлайн-запись через DIKIDI.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FABRI’K — студия красоты в Ухте">
+    <meta property="og:description" content="Твоя красота — в наших руках. Пространство красоты, стиля и личного внимания в Ухте.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dikidi.ru/56245">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+    <!-- Header -->
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="FABRI’K — на главную">
+        <img src="./assets/images/fabrik-logo.png" alt="Логотип студии FABRI’K" width="1024" height="1024">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню" data-testid="menu-toggle">
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Главная навигация">
+        <a href="#services">Услуги</a>
+        <a href="#pricing">Прайс-лист</a>
+        <a href="#studio">О студии</a>
+        <a href="#portfolio">Галерея</a>
+        <a href="#booking">Запись</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="header-cta" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">
+        Онлайн-запись DIKIDI <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <!-- Hero Screen -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-photo" role="img" aria-label="Монохромный редакционный портрет для визуального настроения студии"></div>
+        <div class="hero-content">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Ухта · просп. Мира, 2</p>
+          <h1 id="hero-title">FABRI’K</h1>
+          <p class="hero-subtitle">СТУДИЯ КРАСОТЫ ЮЛИИ ФРОЛОВОЙ</p>
+          <div class="hero-rule"><span></span></div>
+          <p class="hero-slogan">Твоя красота —<br>в наших руках</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+            <a class="button button-light" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">
+              Записаться онлайн в DIKIDI <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button" href="#pricing" style="border-radius:40px;color:var(--ivory);">
+              Посмотреть прайс <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+          <p class="hero-note">Пространство для творчества, где исполняются твои желания.</p>
+        </div>
+        <div class="hero-index" aria-hidden="true">01 <span>—</span> 05</div>
+      </section>
+
+      <!-- Services Highlights -->
+      <section class="services section-wrap" id="services" aria-labelledby="services-title">
+        <div class="section-heading">
+          <p class="eyebrow">Почувствуй себя собой</p>
+          <h2 id="services-title">Направления</h2>
+          <p class="section-intro">Индивидуальный подход, трендовые техники и бережное отношение к здоровью волос.</p>
+        </div>
+        <div class="service-grid">
+          <a class="service-card service-card-tall" href="#pricing" data-category="complex">
+            <img src="./assets/images/service-complex.jpg" alt="Сложные техники окрашивания" width="1024" height="1536" loading="lazy">
+            <span class="service-number">01</span>
+            <span class="service-name">Сложные техники</span>
+            <span class="service-description">Airtouch, балаяж, шатуш, микромелирование и контуринг.</span>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="service-card" href="#pricing" data-category="color">
+            <img src="./assets/images/service-color.jpg" alt="Окрашивание и тонирование" width="1024" height="1536" loading="lazy">
+            <span class="service-number">02</span>
+            <span class="service-name">Окрашивание и тон</span>
+            <span class="service-description">Ровный глубокий тон, бережное тонирование и осветление.</span>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="service-card service-card-offset" href="#pricing" data-category="haircut">
+            <img src="./assets/images/service-haircut.jpg" alt="Стрижки и укладки" width="1024" height="1536" loading="lazy">
+            <span class="service-number">03</span>
+            <span class="service-name">Стрижки и стиль</span>
+            <span class="service-description">Точные женские стрижки, текстурирование, серф-локоны.</span>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="service-card service-card-short" href="#pricing" data-category="care">
+            <img src="./assets/images/service-care.jpg" alt="Восстановление и уход" width="1024" height="1024" loading="lazy">
+            <span class="service-number">04</span>
+            <span class="service-name">Уход и лечение</span>
+            <span class="service-description">Глубокое восстановление структуры волос и пилинг кожи головы.</span>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Interactive Price List -->
+      <section class="pricing-section section-wrap" id="pricing" aria-labelledby="pricing-title">
+        <div class="section-heading">
+          <p class="eyebrow">Актуальный прайс-лист</p>
+          <h2 id="pricing-title">Услуги и цены</h2>
+          <p class="section-intro">Прямая синхронизация с DIKIDI. Выберите процедуру и забронируйте удобное окно онлайн.</p>
+        </div>
+
+        <div class="pricing-tabs-wrap">
+          <div class="pricing-tabs" role="tablist" aria-label="Категории услуг">
+            <button class="pricing-tab is-active" type="button" data-tab="all" role="tab" aria-selected="true">Все услуги (28)</button>
+            <button class="pricing-tab" type="button" data-tab="complex" role="tab" aria-selected="false">Сложные техники</button>
+            <button class="pricing-tab" type="button" data-tab="color" role="tab" aria-selected="false">Окрашивание и тон</button>
+            <button class="pricing-tab" type="button" data-tab="haircut" role="tab" aria-selected="false">Стрижки и укладки</button>
+            <button class="pricing-tab" type="button" data-tab="care" role="tab" aria-selected="false">Уход и лечение</button>
+          </div>
+        </div>
+
+        <div class="pricing-grid" id="pricing-grid">
+          <!-- Complex category -->
+          <article class="pricing-card" data-category="complex">
+            <div class="pricing-top">
+              <span class="pricing-badge">Сложное окрашивание</span>
+              <span class="pricing-time">4–6 ч.</span>
+            </div>
+            <h3 class="pricing-name">Сложные техники окрашивания (длинные волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 12 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="complex">
+            <div class="pricing-top">
+              <span class="pricing-badge">Сложное окрашивание</span>
+              <span class="pricing-time">5 ч.</span>
+            </div>
+            <h3 class="pricing-name">Сложные техники окрашивания (средняя длина)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 9 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="complex">
+            <div class="pricing-top">
+              <span class="pricing-badge">Сложное окрашивание</span>
+              <span class="pricing-time">4 ч.</span>
+            </div>
+            <h3 class="pricing-name">Сложные техники окрашивания (длина каре)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 7 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="complex">
+            <div class="pricing-top">
+              <span class="pricing-badge">Сложное окрашивание</span>
+              <span class="pricing-time">4 ч.</span>
+            </div>
+            <h3 class="pricing-name">Сложные техники окрашивания (короткие волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 6 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="complex">
+            <div class="pricing-top">
+              <span class="pricing-badge">Перезагрузка цвета</span>
+              <span class="pricing-time">6 ч.</span>
+            </div>
+            <h3 class="pricing-name">Выход из черного</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 10 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="complex">
+            <div class="pricing-top">
+              <span class="pricing-badge">Коррекция</span>
+              <span class="pricing-time">6 ч.</span>
+            </div>
+            <h3 class="pricing-name">Исправление сложных случаев</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 10 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="complex">
+            <div class="pricing-top">
+              <span class="pricing-badge">Акцент</span>
+              <span class="pricing-time">3.5 ч.</span>
+            </div>
+            <h3 class="pricing-name">Контуринг</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 6 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Color category -->
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Мелирование</span>
+              <span class="pricing-time">4 ч.</span>
+            </div>
+            <h3 class="pricing-name">Мелирование + тонирование (длинные волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 9 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Мелирование</span>
+              <span class="pricing-time">3.5 ч.</span>
+            </div>
+            <h3 class="pricing-name">Мелирование + тонирование (средняя длина)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 6 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Мелирование</span>
+              <span class="pricing-time">2.5 ч.</span>
+            </div>
+            <h3 class="pricing-name">Мелирование + тонирование (короткие волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 5 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Обесцвечивание</span>
+              <span class="pricing-time">4 ч.</span>
+            </div>
+            <h3 class="pricing-name">Обесцвечивание корней + тонирование длины (длинные)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 7 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Обесцвечивание</span>
+              <span class="pricing-time">3.5 ч.</span>
+            </div>
+            <h3 class="pricing-name">Обесцвечивание корней (средняя длина) + тонирование</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 6 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Обесцвечивание</span>
+              <span class="pricing-time">3 ч.</span>
+            </div>
+            <h3 class="pricing-name">Обесцвечивание корней и тонирование (короткие)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 4 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Окрашивание</span>
+              <span class="pricing-time">2.5 ч.</span>
+            </div>
+            <h3 class="pricing-name">Окрашивание волос (длинные волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 4 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Окрашивание</span>
+              <span class="pricing-time">2 ч.</span>
+            </div>
+            <h3 class="pricing-name">Окрашивание средней длины (в один тон)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 3 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Окрашивание</span>
+              <span class="pricing-time">1.5 ч.</span>
+            </div>
+            <h3 class="pricing-name">Окрашивание волос (короткие волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 2 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Окрашивание</span>
+              <span class="pricing-time">2 ч.</span>
+            </div>
+            <h3 class="pricing-name">Окрашивание корней</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 2 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Тонирование</span>
+              <span class="pricing-time">2 ч.</span>
+            </div>
+            <h3 class="pricing-name">Тонирование (длинные волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 4 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Тонирование</span>
+              <span class="pricing-time">1.5 ч.</span>
+            </div>
+            <h3 class="pricing-name">Тонирование (волосы средней длины)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 3 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="color">
+            <div class="pricing-top">
+              <span class="pricing-badge">Тонирование</span>
+              <span class="pricing-time">1 ч.</span>
+            </div>
+            <h3 class="pricing-name">Тонирование (короткие волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">от 2 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Haircut category -->
+          <article class="pricing-card" data-category="haircut">
+            <div class="pricing-top">
+              <span class="pricing-badge">Стрижки</span>
+              <span class="pricing-time">60 мин</span>
+            </div>
+            <h3 class="pricing-name">Стрижка женская</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">2 000 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="haircut">
+            <div class="pricing-top">
+              <span class="pricing-badge">Стрижки</span>
+              <span class="pricing-time">10 мин</span>
+            </div>
+            <h3 class="pricing-name">Стрижка чёлки</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">300 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="haircut">
+            <div class="pricing-top">
+              <span class="pricing-badge">Стрижки</span>
+              <span class="pricing-time">30 мин</span>
+            </div>
+            <h3 class="pricing-name">Подравнивание волос</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="haircut">
+            <div class="pricing-top">
+              <span class="pricing-badge">Укладка</span>
+              <span class="pricing-time">90 мин</span>
+            </div>
+            <h3 class="pricing-name">Легкие серф-локоны, укладка на длинные волосы</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">2 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <!-- Care category -->
+          <article class="pricing-card" data-category="care">
+            <div class="pricing-top">
+              <span class="pricing-badge">Уход и лечение</span>
+              <span class="pricing-time">90 мин</span>
+            </div>
+            <h3 class="pricing-name">Лечение волос (длинные волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">3 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="care">
+            <div class="pricing-top">
+              <span class="pricing-badge">Уход и лечение</span>
+              <span class="pricing-time">90 мин</span>
+            </div>
+            <h3 class="pricing-name">Лечение волос (волосы средней длины)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">2 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="care">
+            <div class="pricing-top">
+              <span class="pricing-badge">Уход и лечение</span>
+              <span class="pricing-time">90 мин</span>
+            </div>
+            <h3 class="pricing-name">Лечение волос (короткие волосы)</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">1 500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="care">
+            <div class="pricing-top">
+              <span class="pricing-badge">Кожа головы</span>
+              <span class="pricing-time">30 мин</span>
+            </div>
+            <h3 class="pricing-name">Пилинг кожи головы</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="pricing-card" data-category="care">
+            <div class="pricing-top">
+              <span class="pricing-badge">Консультация</span>
+              <span class="pricing-time">35 мин</span>
+            </div>
+            <h3 class="pricing-name">Консультация специалиста</h3>
+            <div class="pricing-bottom">
+              <span class="pricing-cost">500 ₽</span>
+              <a class="pricing-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться <span>↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="pricing-notice">
+          <p><strong>Важно:</strong> Точная стоимость сложного окрашивания определяется индивидуально исходя из исходной базы, густоты и длины волос. Рекомендуем записаться на предварительную <strong>консультацию специалиста</strong>.</p>
+          <a href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Записаться на консультацию ↗</a>
+        </div>
+
+        <!-- Telegram Banner -->
+        <div class="telegram-banner">
+          <div class="telegram-info">
+            <p class="eyebrow" style="color:#24A1DE;margin-bottom:6px;">Telegram-помощник</p>
+            <h3>Удобнее записываться через Telegram?</h3>
+            <p>Бот FABRI’K поможет выбрать свободное время, ознакомиться с прайсом и напомнит о визите прямо в мессенджере.</p>
+          </div>
+          <a class="telegram-btn" href="https://t.me/fabrik_salon_bot" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+            Открыть Telegram-бота
+          </a>
+        </div>
+      </section>
+
+      <!-- About Studio -->
+      <section class="studio" id="studio" aria-labelledby="studio-title">
+        <div class="studio-image">
+          <img src="./assets/images/studio-interior.jpg" alt="Интерьер студии FABRI’K в Ухте" width="1024" height="1024" loading="lazy">
+          <span class="image-caption">Студия FABRI’K · Мира 2</span>
+        </div>
+        <div class="studio-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Пространство для тебя</p>
+          <h2 id="studio-title">Красота —<br>в своём ритме.</h2>
+          <p class="studio-lead">FABRI’K — студия в Ухте, где можно выдохнуть, прислушаться к себе и доверить образ мастеру с 10-летним опытом.</p>
+          <p class="studio-text">Мы верим в гармонию и качество без компромиссов. Исправляем неудачные окрашивания, создаем трендовые плавные переходы и сохраняем качество волос живым и сияющим.</p>
+          <a class="text-link" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Выбрать свободное окно в DIKIDI <span aria-hidden="true">↗</span></a>
+        </div>
+        <span class="studio-mark" aria-hidden="true">F.</span>
+      </section>
+
+      <!-- Gallery -->
+      <section class="portfolio section-wrap" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="portfolio-heading">
+          <div>
+            <p class="eyebrow">Настроение FABRI’K</p>
+            <h2 id="portfolio-title">Эстетика<br>и детали</h2>
+          </div>
+          <p>Внимание к каждой детали — от здоровья кончиков волос до идеального блеска и текстуры.</p>
+        </div>
+        <div class="gallery" aria-label="Галерея визуальных референсов">
+          <button class="gallery-item gallery-large" type="button" data-lightbox="0" data-testid="gallery-image-0" aria-label="Увеличить фото волос">
+            <img src="./assets/images/gallery-hair.jpg" alt="Текстура и волна волос" width="1024" height="1536" loading="lazy">
+            <span>01 / Текстура и цвет</span>
+          </button>
+          <button class="gallery-item gallery-high" type="button" data-lightbox="1" data-testid="gallery-image-1" aria-label="Увеличить фото макияжа">
+            <img src="./assets/images/gallery-eye.jpg" alt="Образ и детали" width="1024" height="1536" loading="lazy">
+            <span>02 / Форма и образ</span>
+          </button>
+          <button class="gallery-item gallery-low" type="button" data-lightbox="2" data-testid="gallery-image-2" aria-label="Увеличить фото ухода">
+            <img src="./assets/images/gallery-hands.jpg" alt="Забота и уход" width="1024" height="1536" loading="lazy">
+            <span>03 / Здоровье и забота</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Booking Section -->
+      <section class="booking" id="booking" aria-labelledby="booking-title">
+        <div class="booking-intro">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Твой следующий шаг</p>
+          <h2 id="booking-title">Онлайн-<br>запись.</h2>
+          <p>Самый быстрый и надежный способ — выбрать удобное время в системе <strong>DIKIDI Online</strong>. Бронь фиксируется в журнале мастера мгновенно.</p>
+          
+          <div style="margin-top:28px;">
+            <a class="button button-solid" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer" style="text-align:center;display:flex;justify-content:center;font-size:12px;letter-spacing:.05em;">
+              Перейти к выбору времени в DIKIDI ↗
+            </a>
+          </div>
+
+          <div class="booking-aside">
+            <span class="aside-mark" aria-hidden="true"></span>
+            <span>Или оставьте быстрый запрос ниже — сформированное сообщение можно отправить напрямую студии.</span>
+          </div>
+        </div>
+
+        <form class="booking-form" id="booking-form" novalidate>
+          <label class="field">
+            <span>Как к тебе обращаться</span>
+            <input name="name" autocomplete="name" placeholder="Твоё имя" required data-testid="booking-name">
+          </label>
+          <label class="field">
+            <span>Номер телефона</span>
+            <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required data-testid="booking-phone">
+          </label>
+          <label class="field" style="grid-column:1/-1;">
+            <span>Желаемая услуга</span>
+            <select name="service" required data-testid="booking-service">
+              <option value="" selected disabled>Выбери услугу</option>
+              <optgroup label="Сложные техники">
+                <option value="Сложные техники окрашивания">Сложные техники окрашивания (от 6 000 ₽)</option>
+                <option value="Выход из черного">Выход из черного (от 10 000 ₽)</option>
+                <option value="Исправление сложных случаев">Исправление сложных случаев (от 10 000 ₽)</option>
+                <option value="Контуринг">Контуринг (от 6 500 ₽)</option>
+              </optgroup>
+              <optgroup label="Окрашивание и тон">
+                <option value="Мелирование + тонирование">Мелирование + тонирование (от 5 000 ₽)</option>
+                <option value="Окрашивание в один тон">Окрашивание волос в один тон (от 2 500 ₽)</option>
+                <option value="Окрашивание корней">Окрашивание корней (от 2 500 ₽)</option>
+                <option value="Тонирование волос">Тонирование волос (от 2 000 ₽)</option>
+                <option value="Обесцвечивание корней">Обесцвечивание корней (от 4 500 ₽)</option>
+              </optgroup>
+              <optgroup label="Стрижки и укладки">
+                <option value="Стрижка женская">Стрижка женская (2 000 ₽)</option>
+                <option value="Стрижка чёлки">Стрижка чёлки (300 ₽)</option>
+                <option value="Подравнивание волос">Подравнивание волос (500 ₽)</option>
+                <option value="Серф локоны / укладка">Серф локоны / укладка (2 500 ₽)</option>
+              </optgroup>
+              <optgroup label="Уход и лечение">
+                <option value="Лечение волос">Лечение и восстановление волос (от 1 500 ₽)</option>
+                <option value="Пилинг кожи головы">Пилинг кожи головы (500 ₽)</option>
+                <option value="Консультация специалиста">Консультация специалиста (500 ₽)</option>
+              </optgroup>
+            </select>
+          </label>
+          <label class="field" style="grid-column:1/-1;">
+            <span>Желаемая дата</span>
+            <input name="date" type="date" required data-testid="booking-date">
+          </label>
+          <button class="button button-solid" type="submit" data-testid="booking-submit">
+            Отправить запрос на запись <span aria-hidden="true">↗</span>
+          </button>
+          <div class="booking-result" id="booking-result" hidden>
+            <p class="form-status" id="form-status" role="status" aria-live="polite" data-testid="booking-status"></p>
+            <div class="booking-actions" id="booking-actions"></div>
+          </div>
+          <button class="copy-button" id="copy-request" type="button" hidden data-testid="copy-request">
+            Скопировать запрос в буфер
+          </button>
+        </form>
+      </section>
+
+      <!-- Contacts -->
+      <section class="contacts section-wrap" id="contacts" aria-labelledby="contacts-title">
+        <div class="contacts-top">
+          <div>
+            <p class="eyebrow">Будем на связи</p>
+            <h2 id="contacts-title">Контакты</h2>
+          </div>
+          <p>Студия красоты FABRI’K в Ухте.<br>Ждём вас на преображение и бережный уход.</p>
+        </div>
+        <div class="contact-details">
+          <div class="contact-unit">
+            <span class="contact-label">Телефон</span>
+            <a class="contact-value" id="contact-phone" href="tel:+79042747363">+7 (904) 274-73-63</a>
+          </div>
+          <div class="contact-unit">
+            <span class="contact-label">Адрес студии</span>
+            <span class="contact-value" id="contact-address">г. Ухта, просп. Мира, д. 2, офис 5</span>
+          </div>
+          <div class="contact-unit">
+            <span class="contact-label">Время работы</span>
+            <span class="contact-value" id="contact-hours">Пн—Вс: 08:00 – 21:00</span>
+          </div>
+          <a class="contact-book" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">
+            Записаться в DIKIDI <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="contact-extra">
+          <div class="social-block">
+            <span class="contact-label">Онлайн-сервисы и соцсети</span>
+            <div class="social-links" id="social-links">
+              <a class="social-link" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">Онлайн-запись DIKIDI ↗</a>
+              <a class="social-link" href="https://vk.com/club111739287" target="_blank" rel="noopener noreferrer">ВКонтакте ↗</a>
+              <a class="social-link" href="https://t.me/fabrik_salon_bot" target="_blank" rel="noopener noreferrer">Telegram-бот ↗</a>
+            </div>
+          </div>
+          <div class="map-block">
+            <span class="contact-label">Расположение на карте</span>
+            <div class="map-placeholder" id="map-placeholder" hidden>Загрузка карты...</div>
+            <iframe class="yandex-map" id="yandex-map" title="Студия FABRI’K на Яндекс.Картах" src="https://yandex.ru/map-widget/v1/?ll=53.705357%2C63.557776&z=17&pt=53.705357,63.557776,pm2rdm" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+        </div>
+        <div class="contact-note">
+          Прием ведется по предварительной записи через DIKIDI или по телефону.
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <a class="footer-brand" href="#top">FABRI’K<span>СТУДИЯ КРАСОТЫ · УХТА</span></a>
+      <p>Твоя красота — в наших руках</p>
+      <a href="#top" class="to-top">Наверх ↑</a>
+      <small>© FABRI’K · Просп. Мира, 2, оф. 5</small>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <dialog class="lightbox" id="lightbox" aria-label="Просмотр изображения" data-testid="lightbox">
+      <button class="lightbox-close" type="button" aria-label="Закрыть изображение" data-testid="lightbox-close">Закрыть <span aria-hidden="true">×</span></button>
+      <img src="" alt="">
+      <p class="lightbox-caption"></p>
+      <button class="lightbox-prev" type="button" aria-label="Предыдущее изображение" data-testid="lightbox-prev">←</button>
+      <button class="lightbox-next" type="button" aria-label="Следующее изображение" data-testid="lightbox-next">→</button>
+    </dialog>
+
+    <!-- Floating Live Chat Widget (Связь с мастером) -->
+    <div class="chat-widget" id="chat-widget">
+      <!-- Trigger Button -->
+      <button class="chat-trigger" id="chat-trigger" type="button" aria-label="Открыть чат со студией">
+        <div class="chat-trigger-avatar">
+          <span>Ю</span>
+        </div>
+        <div class="chat-trigger-text">
+          <span class="chat-trigger-title">Юлия Фролова</span>
+          <span class="chat-trigger-status">Задать вопрос мастеру</span>
+        </div>
+      </button>
+
+      <!-- Chat Window -->
+      <div class="chat-window" id="chat-window" aria-hidden="true">
+        <div class="chat-header">
+          <div class="chat-header-user">
+            <div class="chat-header-avatar">
+              <span>Ю</span>
+            </div>
+            <div class="chat-header-info">
+              <h4>Юлия Фролова · FABRI’K</h4>
+              <span class="chat-header-sub">Мастер студии · Ухта</span>
+            </div>
+          </div>
+          <button class="chat-close-btn" id="chat-close-btn" type="button" aria-label="Закрыть чат">×</button>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-msg msg-admin">
+            Здравствуйте! Задайте вопрос по сложному окрашиванию, выходу из темного или стрижке — отвечу вам подробно здесь или в мессенджере.
+            <span class="chat-msg-time">сейчас</span>
+          </div>
+        </div>
+
+        <div class="chat-chips" id="chat-chips">
+          <button class="chat-chip" type="button" data-question="Сколько длится сложное окрашивание?">Сложное окрашивание</button>
+          <button class="chat-chip" type="button" data-question="Как подготовиться к выходу из черного?">Выход из черного</button>
+          <button class="chat-chip" type="button" data-question="Свободные окна на этой неделе">Свободные окна</button>
+        </div>
+
+        <div class="chat-direct-bar">
+          <a class="chat-direct-link tg" href="https://t.me/fabrik_salon_bot" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+            Telegram: @fabrik_salon_bot ↗
+          </a>
+          <a class="chat-direct-link wa" href="https://wa.me/79042747363" target="_blank" rel="noopener noreferrer">
+            WhatsApp ↗
+          </a>
+        </div>
+
+        <form class="chat-footer" id="chat-form">
+          <input class="chat-input" id="chat-input" type="text" placeholder="Напишите вопрос..." autocomplete="off" required>
+          <button class="chat-send-btn" type="submit" aria-label="Отправить">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mobile Sticky Booking Bar -->
+    <aside class="mobile-booking-bar" aria-label="Быстрая запись">
+      <a class="mobile-booking-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">
+        Онлайн-запись DIKIDI ↗
+      </a>
+    </aside>
+  </body>
+</html>
