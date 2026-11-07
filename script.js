@@ -4,7 +4,7 @@ const SITE_CONFIG = {
   address: "г. Ухта, просп. Мира, д. 2, офис 5",
   openingHours: "Пн—Вс: 08:00 – 21:00",
   socialLinks: [
-    { label: "Онлайн-запись DIKIDI", url: "https://dikidi.net/56245" },
+    { label: "Онлайн-запись DIKIDI", url: "https://dikidi.ru/56245" },
     { label: "ВКонтакте", url: "https://vk.com/club111739287" },
     { label: "Telegram-бот", url: "https://t.me/fabrik_salon_bot" }
   ],
@@ -127,53 +127,60 @@ if (!chatSessionId) {
   localStorage.setItem("fabrik_chat_session", chatSessionId);
 }
 
-const API_BASE = window.location.hostname.includes("github.io")
-  ? "https://fabrik-ukhta.netlify.app"
-  : "";
-
 // Helper to deliver leads and questions directly to master's Telegram
 async function sendLeadToTelegram({ text = "", name = "", phone = "", service = "", date = "" }) {
-  const token = "8842149950:AAHQhK1lTFVUS-XIFiqmkjYsk-dp7vPH7V0";
+  const token = "8842149950:AAFxrxtn_GUJUiEbQWknumqn12CptthRswI";
   const chatId = "8941327288";
 
-  let msg = `💬 <b>Новое обращение с сайта FABRI'K</b>\n\n`;
-  if (name) msg += `👤 <b>Имя:</b> ${escapeHtml(name)}\n`;
-  if (phone) msg += `📞 <b>Телефон:</b> ${escapeHtml(phone)}\n`;
-  if (service) msg += `✂️ <b>Услуга:</b> ${escapeHtml(service)}\n`;
-  if (date) msg += `📅 <b>Желаемая дата:</b> ${escapeHtml(date)}\n`;
-  if (text) msg += `\n💬 <b>Сообщение:</b>\n«${escapeHtml(text)}»\n`;
-  msg += `\n<i>Отправлено с сайта фабрик</i>`;
-
-  const payload = JSON.stringify({
-    chat_id: chatId,
-    text: msg,
-    parse_mode: "HTML"
-  });
-
-  // 1. Direct Telegram Bot API
+  // 1. Try serverless endpoint first (Netlify Functions or local backend)
   try {
+    const res = await fetch("/api/chat/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionId: chatSessionId || "site_user",
+        text,
+        name,
+        phone,
+        service,
+        date
+      })
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.sentToTelegram || data.status === "ok") {
+        return { success: true, method: "serverless" };
+      }
+    }
+  } catch {
+    // Continue to direct API
+  }
+
+  // 2. Try direct Telegram Bot API from browser (native CORS support)
+  try {
+    let msg = `💬 <b>Новое обращение с сайта FABRI'K</b>\n\n`;
+    if (name) msg += `👤 <b>Имя:</b> ${escapeHtml(name)}\n`;
+    if (phone) msg += `📞 <b>Телефон:</b> ${escapeHtml(phone)}\n`;
+    if (service) msg += `✂️ <b>Услуга:</b> ${escapeHtml(service)}\n`;
+    if (date) msg += `📅 <b>Желаемая дата:</b> ${escapeHtml(date)}\n`;
+    if (text) msg += `\n💬 <b>Сообщение:</b>\n«${escapeHtml(text)}»\n`;
+    msg += `\n<i>Отправлено с сайта фабрик</i>`;
+
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: payload
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: msg,
+        parse_mode: "HTML"
+      })
     });
     if (res.ok) {
       return { success: true, method: "direct" };
     }
-  } catch {}
-
-  // 2. Fallback proxy (works when TSPPU blocks api.telegram.org)
-  try {
-    const proxyUrl = `https://corsproxy.io/?url=` + encodeURIComponent(`https://api.telegram.org/bot${token}/sendMessage`);
-    const res = await fetch(proxyUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: payload
-    });
-    if (res.ok) {
-      return { success: true, method: "proxy" };
-    }
-  } catch {}
+  } catch {
+    // Blocked by local ISP or network offline
+  }
 
   return { success: false };
 }
@@ -188,10 +195,8 @@ let bookingRequest = "";
 if (form && status) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const invalidField = form.querySelector(":invalid");
-    if (invalidField) {
-      invalidField.focus();
-      status.textContent = "Пожалуйста, заполните все обязательные поля (имя, телефон, услуга, дата).";
+    if (!form.reportValidity()) {
+      status.textContent = "Пожалуйста, заполните все обязательные поля.";
       if (bookingResult) bookingResult.hidden = false;
       return;
     }
@@ -244,7 +249,7 @@ if (form && status) {
       status.innerHTML = "<strong>✅ Заявка отправлена прямо в Telegram мастеру Юлии!</strong> Мы свяжемся с вами в ближайшее время для подтверждения.";
       if (bookingActions) {
         bookingActions.innerHTML = `
-          <a class="booking-action-btn" href="https://dikidi.net/56245" target="_blank" rel="noopener noreferrer">
+          <a class="booking-action-btn" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">
             Выбрать точное время в DIKIDI ↗
           </a>
           <a class="booking-action-btn secondary" href="https://t.me/fabrik_salon_bot" target="_blank" rel="noopener noreferrer">
@@ -265,7 +270,7 @@ if (form && status) {
           <a class="booking-action-btn" href="${waUrl}" target="_blank" rel="noopener noreferrer">
             Отправить в WhatsApp ↗
           </a>
-          <a class="booking-action-btn secondary" href="https://dikidi.net/56245" target="_blank" rel="noopener noreferrer">
+          <a class="booking-action-btn secondary" href="https://dikidi.ru/56245" target="_blank" rel="noopener noreferrer">
             Записаться в DIKIDI ↗
           </a>
         `;
@@ -273,50 +278,6 @@ if (form && status) {
     }
   });
 }
-
-// Interactive Booking from Pricing Cards
-document.querySelectorAll(".pricing-card").forEach((card) => {
-  const btn = card.querySelector(".pricing-btn");
-  const nameEl = card.querySelector(".pricing-name");
-  if (!btn || !nameEl) return;
-  const serviceName = nameEl.textContent.trim();
-  btn.setAttribute("href", "#booking");
-  btn.removeAttribute("target");
-  btn.removeAttribute("rel");
-  btn.innerHTML = `Записаться <span>↓</span>`;
-  
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const bookingSection = document.querySelector("#booking");
-    const serviceSelect = document.querySelector('select[name="service"]');
-    const nameInput = document.querySelector('input[name="name"]');
-    
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: "smooth" });
-    }
-    
-    if (serviceSelect) {
-      let matched = false;
-      const lowerName = serviceName.toLowerCase();
-      for (const opt of serviceSelect.options) {
-        const lowerOpt = opt.value.toLowerCase();
-        if (lowerName.includes(lowerOpt) || lowerOpt.includes(lowerName)) {
-          serviceSelect.value = opt.value;
-          matched = true;
-          break;
-        }
-      }
-      if (!matched) {
-        const customOpt = new Option(serviceName, serviceName, true, true);
-        serviceSelect.add(customOpt);
-      }
-    }
-    
-    setTimeout(() => {
-      if (nameInput) nameInput.focus();
-    }, 600);
-  });
-});
 
 // Gallery Lightbox
 const galleryImages = Array.from(document.querySelectorAll(".gallery-item img"));
@@ -403,21 +364,21 @@ const QUICK_ANSWERS = {
   "Сколько длится сложное окрашивание?": {
     text: "Сложные техники (Airtouch, балаяж, микромелирование, шатуш) занимают от 3,5 до 6 часов в зависимости от длины и густоты волос. В стоимость (от 6 000 ₽) входит бережное осветление, уход для защиты связей волоса, тонирование и укладка.",
     buttons: [
-      { text: "Выбрать время в DIKIDI ↗", url: "https://dikidi.net/56245" },
+      { text: "Выбрать время в DIKIDI ↗", url: "https://dikidi.ru/56245" },
       { text: "Спросить в Telegram (@fabrik_salon_bot) ↗", url: "https://t.me/fabrik_salon_bot" }
     ]
   },
   "Как подготовиться к выходу из черного?": {
     text: "Выход из черного проводится бережно в 1–2 этапа через смывку с защитой дисульфидных связей (plex). Стоимость от 10 000 ₽. Рекомендуем начать с очной консультации мастера или тест-пряди (500 ₽), чтобы оценить качество волос.",
     buttons: [
-      { text: "Записаться на консультацию в DIKIDI ↗", url: "https://dikidi.net/56245" },
+      { text: "Записаться на консультацию в DIKIDI ↗", url: "https://dikidi.ru/56245" },
       { text: "Написать мастеру в Telegram ↗", url: "https://t.me/fabrik_salon_bot" }
     ]
   },
   "Свободные окна на этой неделе": {
     text: "Актуальное расписание и свободные окна мастера в реальном времени всегда открыты в онлайн-записи DIKIDI. Вы можете моментально выбрать подходящий день и время:",
     buttons: [
-      { text: "Смотреть свободные окна в DIKIDI ↗", url: "https://dikidi.net/56245" },
+      { text: "Смотреть свободные окна в DIKIDI ↗", url: "https://dikidi.ru/56245" },
       { text: "Уточнить у мастера в Telegram ↗", url: "https://t.me/fabrik_salon_bot" }
     ]
   }
@@ -457,7 +418,7 @@ chatChips.forEach((chip) => {
           "Вы можете задать этот вопрос мастеру напрямую в Telegram или выбрать услугу в DIKIDI:",
           [
             { text: "Открыть диалог в Telegram (@fabrik_salon_bot) ↗", url: "https://t.me/fabrik_salon_bot" },
-            { text: "Онлайн-запись DIKIDI ↗", url: "https://dikidi.net/56245" }
+            { text: "Онлайн-запись DIKIDI ↗", url: "https://dikidi.ru/56245" }
           ]
         );
       }
@@ -495,7 +456,7 @@ if (chatForm && chatInput) {
           "✅ Ваш вопрос успешно отправлен Юлии в Telegram! Мастер ответит вам в ближайшее время.",
           [
             { text: "Открыть диалог в Telegram (@fabrik_salon_bot) ↗", url: "https://t.me/fabrik_salon_bot" },
-            { text: "Выбрать время в DIKIDI ↗", url: "https://dikidi.net/56245" }
+            { text: "Выбрать время в DIKIDI ↗", url: "https://dikidi.ru/56245" }
           ]
         );
       }, 400);
@@ -507,7 +468,7 @@ if (chatForm && chatInput) {
           [
             { text: "💬 Отправить в Telegram (@fabrik_salon_bot) ↗", url: "https://t.me/fabrik_salon_bot" },
             { text: "📱 Отправить в WhatsApp (+7 904 274-73-63) ↗", url: waUrl },
-            { text: "📅 Записаться онлайн в DIKIDI ↗", url: "https://dikidi.net/56245" }
+            { text: "📅 Записаться онлайн в DIKIDI ↗", url: "https://dikidi.ru/56245" }
           ]
         );
       }, 400);
@@ -519,7 +480,7 @@ if (chatForm && chatInput) {
 setInterval(async () => {
   if (!chatWindow || !chatWindow.classList.contains("is-open")) return;
   try {
-    const res = await fetch(`${API_BASE}/api/chat/messages?sessionId=${chatSessionId}`);
+    const res = await fetch(`/api/chat/messages?sessionId=${chatSessionId}`);
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data.messages)) {
