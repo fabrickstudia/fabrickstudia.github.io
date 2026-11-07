@@ -133,58 +133,47 @@ const API_BASE = window.location.hostname.includes("github.io")
 
 // Helper to deliver leads and questions directly to master's Telegram
 async function sendLeadToTelegram({ text = "", name = "", phone = "", service = "", date = "" }) {
-  const token = "8842149950:AAFxrxtn_GUJUiEbQWknumqn12CptthRswI";
+  const token = "8842149950:AAHQhK1lTFVUS-XIFiqmkjYsk-dp7vPH7V0";
   const chatId = "8941327288";
 
-  // 1. Try serverless endpoint first (Netlify Functions or cloud backend)
-  try {
-    const res = await fetch(`${API_BASE}/api/chat/send`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        sessionId: chatSessionId || "site_user",
-        text,
-        name,
-        phone,
-        service,
-        date
-      })
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data.sentToTelegram || data.status === "ok") {
-        return { success: true, method: "serverless" };
-      }
-    }
-  } catch {
-    // Continue to direct API
-  }
+  let msg = `💬 <b>Новое обращение с сайта FABRI'K</b>\n\n`;
+  if (name) msg += `👤 <b>Имя:</b> ${escapeHtml(name)}\n`;
+  if (phone) msg += `📞 <b>Телефон:</b> ${escapeHtml(phone)}\n`;
+  if (service) msg += `✂️ <b>Услуга:</b> ${escapeHtml(service)}\n`;
+  if (date) msg += `📅 <b>Желаемая дата:</b> ${escapeHtml(date)}\n`;
+  if (text) msg += `\n💬 <b>Сообщение:</b>\n«${escapeHtml(text)}»\n`;
+  msg += `\n<i>Отправлено с сайта фабрик</i>`;
 
-  // 2. Try direct Telegram Bot API from browser (native CORS support)
-  try {
-    let msg = `💬 <b>Новое обращение с сайта FABRI'K</b>\n\n`;
-    if (name) msg += `👤 <b>Имя:</b> ${escapeHtml(name)}\n`;
-    if (phone) msg += `📞 <b>Телефон:</b> ${escapeHtml(phone)}\n`;
-    if (service) msg += `✂️ <b>Услуга:</b> ${escapeHtml(service)}\n`;
-    if (date) msg += `📅 <b>Желаемая дата:</b> ${escapeHtml(date)}\n`;
-    if (text) msg += `\n💬 <b>Сообщение:</b>\n«${escapeHtml(text)}»\n`;
-    msg += `\n<i>Отправлено с сайта фабрик</i>`;
+  const payload = JSON.stringify({
+    chat_id: chatId,
+    text: msg,
+    parse_mode: "HTML"
+  });
 
+  // 1. Direct Telegram Bot API
+  try {
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: msg,
-        parse_mode: "HTML"
-      })
+      body: payload
     });
     if (res.ok) {
       return { success: true, method: "direct" };
     }
-  } catch {
-    // Blocked by local ISP or network offline
-  }
+  } catch {}
+
+  // 2. Fallback proxy (works when TSPPU blocks api.telegram.org)
+  try {
+    const proxyUrl = `https://corsproxy.io/?url=` + encodeURIComponent(`https://api.telegram.org/bot${token}/sendMessage`);
+    const res = await fetch(proxyUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload
+    });
+    if (res.ok) {
+      return { success: true, method: "proxy" };
+    }
+  } catch {}
 
   return { success: false };
 }
